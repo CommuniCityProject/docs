@@ -1,0 +1,71 @@
+# ======= Anchors ==============================================================
+common_host: &common_host
+  127.0.0.1
+
+pagination_limit: &pagination_limit
+  30
+# ==============================================================================
+
+use_cookies: True
+show_agreement: True
+agreement_text: res/texts/agreement.txt
+
+context_broker:
+  host: *common_host
+  port: 1026
+
+image_storage: &image_storage
+  host: *common_host
+  port: 9001
+  url_path: /
+
+projects:
+  - name: Context Broker
+    port: 1026
+    host: *common_host
+    pagination_limit: *pagination_limit
+    url_path: /
+    refresh_rate: 10 # seconds
+    description_path: res/texts/context_broker.txt
+    template: ContextBrokerTemplate
+  - name: Image Storage
+    template: ImageStorageTemplate
+    pagination_limit: *pagination_limit
+    description_path: res/texts/image_storage.txt
+    <<: *image_storage
+  - name: Face Detection
+    port: 9007
+    host: *common_host
+    url_path: /
+    description_path: res/texts/face_detection.txt
+    template: SimplePredictTemplate
+  - name: Face Recognition
+    port: 9002
+    host: *common_host
+    url_path: /
+    description_path: res/texts/face_recognition.txt
+    template: FaceRecognitionTemplate
+  - name: Face Emotions
+    port: 9004
+    host: *common_host
+    url_path: /
+    description_path: res/texts/face_emotions.txt
+    template: SimplePredictTemplate
+  - name: Age Gender
+    port: 9003
+    host: *common_host
+    url_path: /
+    description_path: res/texts/age_gender.txt
+    template: SimplePredictTemplate
+  - name: Instance Segmentation
+    port: 9005
+    host: *common_host
+    url_path: /
+    description_path: res/texts/instance_segmentation.txt
+    template: SimplePredictTemplate
+  - name: Keypoints
+    port: 9006
+    host: *common_host
+    url_path: /
+    description_path: res/texts/keypoints.txt
+    template: SimplePredictTemplate

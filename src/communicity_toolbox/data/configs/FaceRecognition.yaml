@@ -1,0 +1,47 @@
+__BASE__: base.yaml
+
+face_recognition:
+  model_name: face_recognition_facenet
+  params:
+    distance_threshold: 0.75
+    model_path: !ENV ${TOOLBOX_DATA}/models/face_recognition_facenet/squeezenet_VGGFace2/model-20180204-160909.ckpt-266000
+    use_cuda: !ENV ${USE_CUDA}
+  dataset_path: !ENV ${TOOLBOX_DATA}/samples/face_recognition_datasets/facenet_celeb_single.pkl
+  unknown_label: "<unk>"
+  domain: Celeb
+
+face_detector:
+  model_name: face_detector_retinaface
+  params:
+    weights_path: !ENV ${TOOLBOX_DATA}/models/face_detector_retinaface/Resnet50_Final.pth
+    model_name: resnet50
+    confidence_threshold: 0.7
+    landmarks: False
+    nms_threshold: 0.4
+    use_cuda: !ENV ${USE_CUDA}
+
+context_broker:
+  notification_uri: !ENV http://${HOST}:${PORT}/ngsi-ld/v1/notify
+
+api:
+  # Wether the api should extract features of faces
+  do_feature_extraction: True
+
+  # Whether the api should recognize the features
+  do_feature_recognition: True
+
+  # Create a new entity in the context broker with the recognized data when
+  # an unrecognized entity is received and processed from the context broker.
+  post_new_entity: False
+  
+  # Update the unrecognized received entity from the context broker with
+  # the recognized data.
+  update_entity: True
+
+subscriptions:
+  - entity_type: FaceRecognition
+    watched_attributes: ["recognized"]
+    query: "recognized==false"
+  - entity_type: Image
+    watched_attributes: ["purpose"]
+    query: "purpose==%22FaceRecognition%22"
