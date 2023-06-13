@@ -1,0 +1,3 @@
+[submodule "src/communicity_toolbox"]
+	path = src/communicity_toolbox
+	url = https://github.com/CommuniCityProject/communicity_toolbox.git
