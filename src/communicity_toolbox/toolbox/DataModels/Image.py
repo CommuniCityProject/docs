@@ -6,22 +6,11 @@ from .DataModelsCatalog import register_data_model
 
 @register_data_model
 class Image(BaseModel):
-    """This entity stores information about an image file that is uploaded to
-        a server from a camera or any other source, and that is available to
-        other services.
-
-    Attributes:
-        id (str)
-        dateObserved (datetime)
-        type (str)
-        width (int)
-        height (int)
-        path (str)
-        url (str)
-        source (str)
-        purpose (str)
+    """This data model stores information about an image file that is uploaded
+    to a server from a camera or any other source, and that is available to
+    other services.
     """
-    
+
     __rel_attrs__ = set()
     __context__ = set()
 

@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Optional
 
 from pydantic import Field
 
@@ -10,21 +10,11 @@ from .DataModelsCatalog import register_data_model
 
 @register_data_model
 class PersonKeyPoints(BaseModel):
-    """This entity stores information about a set of body-keypoints of an
-    image of a person. It is intended to be used with computer vision
-    algorithms to infer the position of different parts of the body from an
-    image.
-
-    Attributes:
-        id (str)
-        dateObserved (datetime)
-        type (str)
-        image (str)
-        bounding_box (BoundingBox)
-        confidence (float)
-        keypoints (Keypoints.COCOKeypoints)
+    """This data model stores information about a set of body-keypoints of an
+    image of a person. It is intended to be used with computer vision algorithms
+    to infer the position of different parts of the body from an image.
     """
-    
+
     __rel_attrs__ = {"image"}
     __context__ = set()
 
