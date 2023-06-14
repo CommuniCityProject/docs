@@ -7,6 +7,7 @@ build:
   jobs:
     pre_install:
       - python -m pip install -r src/communicity_toolbox/requirements.txt
+      - python -m pip install -e src/communicity_toolbox
     pre_build:
       - sphinx-apidoc -f -o ./docs/toolbox/ ./src/communicity_toolbox/toolbox/ *setup*
 
