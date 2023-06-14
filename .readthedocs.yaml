@@ -5,7 +5,7 @@ build:
   tools:
     python: "3.9"
   jobs:
-    pre_install:
+    post_install:
       - python -m pip install -r src/communicity_toolbox/requirements.txt
       - python -m pip install -e src/communicity_toolbox
     pre_build:
