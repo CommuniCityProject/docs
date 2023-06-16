@@ -5,10 +5,10 @@ build:
   tools:
     python: "3.9"
   jobs:
-    # post_install:
-    pre_build:
+    post_install:
       - python -m pip install -r src/communicity_toolbox/requirements.txt
       - python -m pip install -e src/communicity_toolbox
+    pre_build:
       - sphinx-apidoc -f -o ./docs/toolbox/ ./src/communicity_toolbox/toolbox/ *setup*
 
 # Build from the docs/ directory with Sphinx
@@ -19,3 +19,6 @@ sphinx:
 python:
   install:
     - requirements: requirements.txt
+  
+submodules:
+  include: all
