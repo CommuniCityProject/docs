@@ -1,1 +1,0 @@
-from .Detectron2 import Detectron2
