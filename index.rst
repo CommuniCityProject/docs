@@ -3,33 +3,12 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-CommuniCity Toolbox's documentation
+Welcome to the CommuniCity Project's documentation!
 ===================================
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Guides:
-   :glob:
-   
-   src/communicity_toolbox/README.md
-   src/communicity_toolbox/docs/quick-start.md
-   src/communicity_toolbox/docs/installation.md
-   src/communicity_toolbox/docs/docker.md
-   src/communicity_toolbox/docs/projects.md
-   src/communicity_toolbox/docs/data-models.md
-   src/communicity_toolbox/docs/machine-learning-models.md
-   src/communicity_toolbox/docs/structures.md
-
-.. toctree::
    :maxdepth: 2
-   :caption: Package Documentation:
+   :caption: Projects:
    
-   docs/toolbox/modules.rst
+   docs/toolbox/indexes/index.rst
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
