@@ -10,5 +10,5 @@ Welcome to the CommuniCity Project's documentation!
    :maxdepth: 2
    :caption: Projects:
    
-   docs/toolbox/indexes/index.rst
+   toolbox_index.rst
 
