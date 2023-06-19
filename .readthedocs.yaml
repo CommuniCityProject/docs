@@ -6,6 +6,7 @@ build:
     python: "3.9"
   jobs:
     post_install:
+      - git submodule update --init --recursive --remote
       - python -m pip install -r src/communicity_toolbox/requirements.txt
       - python -m pip install -e src/communicity_toolbox
     pre_build:
